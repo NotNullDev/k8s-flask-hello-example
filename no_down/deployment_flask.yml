@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+spec: # object
+  selector: # object-selector to find
+    matchLabels:
+      app: flask-hello-app # must be same as in template
+  template: # our container https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/
+    metadata:
+      labels:
+        app: flask-hello-app
+    spec:
+      containers:
+        - name: flask-app
+          image: notnulldev/flask_hello:1.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
+          env:
+            - name: FLASK_APP
+              value: "hello.py"

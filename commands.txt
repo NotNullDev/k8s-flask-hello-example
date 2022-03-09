@@ -1,0 +1,33 @@
+# add to zshrc for completion line below:
+source < (kubectl completion zsh)
+
+kubectl apply -f <filename>
+
+# troubleshooting
+kubectl describe pods <pod_name>
+
+# minikube service ip
+minikube service list 
+
+# pod usually = docker container
+kubectl get pods
+kubectl get pods -l app=my-nginx-rc
+# delete pods where label: app: my-nginx-rc in yml file
+kubectl delete pods -l app=my-nginx-rc
+
+# rc make sure we have always desired state of containers alive!
+# get replication controllers
+kubectl get rc
+
+kubectl describe rc 
+
+kubectl get rc
+kubectl delete rc my-nginx-rc
+
+kubectl get svc
+
+kubectl delete service nginx-service
+
+# rollback
+kubectl rollout undo deployment <dep_name> --to-revision=2
+kubectl rollout history deployment <dep_name>
