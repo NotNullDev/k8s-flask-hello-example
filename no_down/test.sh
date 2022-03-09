@@ -4,6 +4,6 @@ do
 
     curl http://192.168.49.2:30656
     echo 
-    sleep 1
+    sleep 0.3
 
 done

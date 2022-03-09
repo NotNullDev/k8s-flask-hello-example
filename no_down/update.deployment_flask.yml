@@ -14,7 +14,7 @@ spec: # object
     spec:
       containers:
         - name: flask-app
-          image: notnulldev/flask_hello:2.0
+          image: notnulldev/flask_hello:2.1
           resources:
             limits:
               memory: "128Mi"
